@@ -72,20 +72,6 @@ export default function SongSearchBox({ onSubmit, disabled }: Props) {
     await onSubmit(result);
   }, [onSubmit]);
 
-  const handleSend = useCallback(async () => {
-    const q = query.trim();
-    if (!q) return;
-    if (activeIdx >= 0 && results[activeIdx]) {
-      await handleSelect(results[activeIdx]);
-    } else {
-      setQuery("");
-      setOpen(false);
-      setResults([]);
-      setActiveIdx(-1);
-      await onSubmit({ track: q, artist: "", spotify_url: "", album_art: "" });
-    }
-  }, [query, activeIdx, results, handleSelect, onSubmit]);
-
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "ArrowDown") {
       e.preventDefault();
@@ -95,12 +81,12 @@ export default function SongSearchBox({ onSubmit, disabled }: Props) {
       setActiveIdx(i => Math.max(i - 1, -1));
     } else if (e.key === "Enter") {
       e.preventDefault();
-      handleSend();
+      if (activeIdx >= 0 && results[activeIdx]) handleSelect(results[activeIdx]);
     } else if (e.key === "Escape") {
       setOpen(false);
       setActiveIdx(-1);
     }
-  }, [results.length, handleSend]);
+  }, [results, activeIdx, handleSelect]);
 
   return (
     <div ref={containerRef} className="suggest-search-wrap">
@@ -112,18 +98,11 @@ export default function SongSearchBox({ onSubmit, disabled }: Props) {
           onChange={e => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           onFocus={() => results.length > 0 && setOpen(true)}
-          placeholder="Search for a song..."
+          placeholder="Search and pick a song..."
           autoComplete="off"
           disabled={disabled}
         />
         {loading && <span className="suggest-searching" />}
-        <button
-          className="suggest-send"
-          disabled={disabled || !query.trim()}
-          onClick={handleSend}
-        >
-          Send
-        </button>
       </div>
       {open && results.length > 0 && (
         <div className="suggest-dropdown">
