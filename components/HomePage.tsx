@@ -381,6 +381,9 @@ export default function HomePage() {
               </div>
             </div>
             <div className="proj-links">
+              <a href="https://nea.daftscientist.dev" className="proj-link" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                Read ↗
+              </a>
               <a href="https://github.com/daftscientist" className="proj-link" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                 GitHub ↗
               </a>
@@ -495,6 +498,22 @@ export default function HomePage() {
               <a href="https://usecascade.io" className="proj-link" target="_blank" rel="noopener noreferrer">
                 Website ↗
               </a>
+              <a href="https://github.com/daftscientist" className="proj-link" target="_blank" rel="noopener noreferrer">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+
+          <div className="proj r rd5">
+            <div>
+              <div className="proj-name">PteroDev</div>
+              <div className="proj-desc">
+                Founding developer of PteroDev — a marketplace for the Pterodactyl game server ecosystem. Part of a small group that built the platform from scratch. Since sunsetted.
+              </div>
+              <div className="b-tags">
+                <span className="b-tag">TypeScript</span>
+                <span className="b-tag">React</span>
+              </div>
             </div>
           </div>
         </section>
