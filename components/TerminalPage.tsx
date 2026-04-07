@@ -68,7 +68,7 @@ const filesystem: Record<string, string[] | Record<string, string[]>> = {
       "Contact & Links",
       "===============",
       "",
-      "Email    leo@daftscientist.dev",
+      "Email    leo@daft.email",
       "GitHub   github.com/daftscientist",
       "LinkedIn linkedin.com/in/leo-johnston",
       "Website  daftscientist.dev",

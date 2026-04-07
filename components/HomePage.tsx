@@ -256,7 +256,7 @@ export default function HomePage() {
               </svg>
               LinkedIn
             </a>
-            <a href="mailto:leo@daftscientist.dev">
+            <a href="mailto:leo@daft.email">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -568,7 +568,7 @@ export default function HomePage() {
             Got a project, an idea, or just want to say hello.
           </p>
           <div className="contact-row r rd2">
-            <a href="mailto:leo@daftscientist.dev">Email</a>
+            <a href="mailto:leo@daft.email">Email</a>
             <a href="https://github.com/daftscientist" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://linkedin.com/in/leo-johnston" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
