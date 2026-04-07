@@ -524,7 +524,7 @@ export default function HomePage() {
 
           <div className="proj r rd5">
             <div>
-              <div className="proj-name">PteroDev</div>
+              <div className="proj-name">PteroDev <span style={{ fontSize: "11px", color: "var(--charcoal)", fontWeight: 400, letterSpacing: "0.3px" }}>— sunsetted</span></div>
               <div className="proj-desc">
                 Addon and theme developer for the Pterodactyl open-source game server panel — both paid and free releases, extending the platform for the wider community.
               </div>
