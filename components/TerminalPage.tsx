@@ -439,6 +439,24 @@ export default function TerminalPage() {
           overflow: hidden;
           cursor: auto;
         }
+        @media (max-width: 600px) {
+          body {
+            font-size: 12px;
+            line-height: 1.5;
+          }
+          .terminal-chrome {
+            padding: 10px 12px !important;
+          }
+          .terminal-output {
+            padding: 12px !important;
+          }
+          .terminal-input {
+            padding: 10px 12px !important;
+          }
+          .terminal-prompt-path {
+            display: none;
+          }
+        }
       `}</style>
 
       <canvas
@@ -464,18 +482,15 @@ export default function TerminalPage() {
       >
         {/* Chrome */}
         <div
+          className="terminal-chrome"
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "8px",
             padding: "14px 20px",
             borderBottom: "1px solid rgba(76,76,75,0.15)",
             flexShrink: 0,
           }}
         >
-          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57" }} />
-          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e" }} />
-          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840" }} />
           <span
             style={{
               flex: 1,
@@ -502,6 +517,7 @@ export default function TerminalPage() {
 
         {/* Output */}
         <div
+          className="terminal-output"
           ref={outputRef}
           style={{
             flex: 1,
@@ -515,8 +531,8 @@ export default function TerminalPage() {
               return (
                 <div key={i} style={{ whiteSpace: "pre-wrap", wordBreak: "break-word", color: "var(--white)" }}>
                   <span style={{ color: "var(--green)" }}>leo</span>
-                  <span style={{ color: "var(--charcoal)" }}>:</span>
-                  <span style={{ color: "var(--blue)" }}>~/daftscientist.dev</span>
+                  <span className="terminal-prompt-path" style={{ color: "var(--charcoal)" }}>:</span>
+                  <span className="terminal-prompt-path" style={{ color: "var(--blue)" }}>~/daftscientist.dev</span>
                   <span style={{ color: "var(--charcoal)" }}> $ </span>
                   {line.text}
                 </div>
@@ -561,6 +577,7 @@ export default function TerminalPage() {
 
         {/* Input */}
         <div
+          className="terminal-input"
           style={{
             display: "flex",
             alignItems: "center",
@@ -570,8 +587,8 @@ export default function TerminalPage() {
           }}
         >
           <span style={{ color: "var(--green)", whiteSpace: "nowrap", userSelect: "none" }}>leo</span>
-          <span style={{ color: "var(--charcoal)", margin: "0 6px 0 4px", userSelect: "none" }}>:</span>
-          <span style={{ color: "var(--blue)", whiteSpace: "nowrap", userSelect: "none" }}>~/daftscientist.dev</span>
+          <span className="terminal-prompt-path" style={{ color: "var(--charcoal)", margin: "0 6px 0 4px", userSelect: "none" }}>:</span>
+          <span className="terminal-prompt-path" style={{ color: "var(--blue)", whiteSpace: "nowrap", userSelect: "none" }}>~/daftscientist.dev</span>
           <span style={{ color: "var(--charcoal)", margin: "0 6px 0 4px", userSelect: "none" }}>$</span>
           <input
             ref={inputRef}
