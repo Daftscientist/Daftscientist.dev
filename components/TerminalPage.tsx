@@ -71,12 +71,12 @@ const filesystem: Record<string, string[] | Record<string, string[]>> = {
       "Email    leo@daft.email",
       "GitHub   github.com/daftscientist",
       "LinkedIn linkedin.com/in/leo-johnston",
-      "Website  daftscientist.dev",
+      `Website  ${hostname}`,
     ],
   },
 };
 
-function getCommandResult(cmd: string, args: string[], history: string[]): Line[] {
+function getCommandResult(cmd: string, args: string[], history: string[], hostname: string): Line[] {
   switch (cmd) {
     case "help":
       return [
@@ -100,7 +100,7 @@ function getCommandResult(cmd: string, args: string[], history: string[]): Line[
       return [{ type: "out", text: "leo" }];
 
     case "pwd":
-      return [{ type: "out", text: "~/daftscientist.dev" }];
+      return [{ type: "out", text: `~/${hostname}` }];
 
     case "ls": {
       const target = args[0];
@@ -188,7 +188,7 @@ function getCommandResult(cmd: string, args: string[], history: string[]): Line[
         { type: "heading", text: "  daft." },
         { type: "out", text: "  -----" },
         { type: "out", text: `  OS: daftOS v${new Date().getFullYear()}` },
-        { type: "out", text: "  Host: daftscientist.dev" },
+        { type: "out", text: `  Host: ${hostname}` },
         { type: "out", text: "  Shell: zsh (fake)" },
         { type: "out", text: "  Languages: English, Spanish" },
         { type: "out", text: "  Stack: Python, TypeScript, React, Rust" },
@@ -289,7 +289,7 @@ export default function TerminalPage() {
           " on ttys000",
       },
       { type: "out", text: "" },
-      { type: "heading", text: "Welcome to daftscientist.dev/terminal" },
+      { type: "heading", text: `Welcome to ${typeof window !== "undefined" ? window.location.hostname : "daftscientist.dev"}/terminal` },
       { type: "out", text: "" },
       { type: "out", text: "This is a fake terminal. Explore my portfolio from the command line." },
       { type: "out", text: "Type `help` to see available commands." },
@@ -407,7 +407,7 @@ export default function TerminalPage() {
         return;
       }
 
-      const result = getCommandResult(cmd, args, newHistory);
+      const result = getCommandResult(cmd, args, newHistory, window.location.hostname);
       setLines((prev) => [...prev, { type: "cmd", text: trimmed }, ...result]);
     },
     [cmdHistory, startMatrix]
@@ -564,7 +564,7 @@ export default function TerminalPage() {
                 <div key={i} style={{ whiteSpace: "pre-wrap", wordBreak: "break-word", color: "var(--white)" }}>
                   <span style={{ color: "var(--green)" }}>leo</span>
                   <span className="terminal-prompt-path" style={{ color: "var(--charcoal)" }}>:</span>
-                  <span className="terminal-prompt-path" style={{ color: "var(--blue)" }}>~/daftscientist.dev</span>
+                  <span className="terminal-prompt-path" style={{ color: "var(--blue)" }}>~/{typeof window !== "undefined" ? window.location.hostname : "daftscientist.dev"}</span>
                   <span style={{ color: "var(--charcoal)" }}> $ </span>
                   {line.text}
                 </div>
@@ -620,7 +620,7 @@ export default function TerminalPage() {
         >
           <span style={{ color: "var(--green)", whiteSpace: "nowrap", userSelect: "none" }}>leo</span>
           <span className="terminal-prompt-path" style={{ color: "var(--charcoal)", margin: "0 6px 0 4px", userSelect: "none" }}>:</span>
-          <span className="terminal-prompt-path" style={{ color: "var(--blue)", whiteSpace: "nowrap", userSelect: "none" }}>~/daftscientist.dev</span>
+          <span className="terminal-prompt-path" style={{ color: "var(--blue)", whiteSpace: "nowrap", userSelect: "none" }}>~/{typeof window !== "undefined" ? window.location.hostname : "daftscientist.dev"}</span>
           <span style={{ color: "var(--charcoal)", margin: "0 6px 0 4px", userSelect: "none" }}>$</span>
           <input
             ref={inputRef}

@@ -531,7 +531,7 @@ export default function HomePage() {
         <section className="sec" id="exp">
           <div className="sec-head r">Experience</div>
           <div className="exp r rd1">
-            <span className="exp-year">2025 —</span>
+            <span className="exp-year">2025</span>
             <span className="exp-role"><strong>Founder</strong> of Aftora.io</span>
             <span className="exp-place">Remote</span>
           </div>
