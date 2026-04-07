@@ -28,6 +28,7 @@ export default function SongSearchBox({ onSubmit, disabled }: Props) {
   // Debounced search
   useEffect(() => {
     if (!query.trim() || query.length < 2) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setResults([]);
       setOpen(false);
       setActiveIdx(-1);

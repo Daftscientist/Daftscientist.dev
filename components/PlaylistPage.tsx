@@ -108,12 +108,12 @@ export default function PlaylistPage() {
       {/* Nav */}
       <nav className="nav">
         <div className="col">
-          <a href="/" className="logo" ref={logoRef}>
+          <Link href="/" className="logo" ref={logoRef}>
             daft
             <span className="logo-dot">
               <span className="logo-dot-fill" ref={dotFillRef} />
             </span>
-          </a>
+          </Link>
           <div className="nav-r">
             <Link href="/#about">about</Link>
             <Link href="/#work">work</Link>
