@@ -508,11 +508,12 @@ export default function HomePage() {
             <div>
               <div className="proj-name">PteroDev</div>
               <div className="proj-desc">
-                Founding developer of PteroDev — a marketplace for the Pterodactyl game server ecosystem. Part of a small group that built the platform from scratch. Since sunsetted.
+                Addon and theme developer for the Pterodactyl open-source game server panel — both paid and free releases, extending the platform for the wider community.
               </div>
               <div className="b-tags">
                 <span className="b-tag">TypeScript</span>
-                <span className="b-tag">React</span>
+                <span className="b-tag">PHP</span>
+                <span className="b-tag">Pterodactyl</span>
               </div>
             </div>
           </div>
