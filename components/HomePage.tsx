@@ -356,7 +356,12 @@ export default function HomePage() {
               <div className="b-val" style={{ color: "var(--charcoal)" }}>this year</div>
             </div>
             <div className="b bw r rd4">
-              <div className="b-label">Suggest me a song</div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2px" }}>
+                <div className="b-label">Suggest me a song</div>
+                <Link href="/playlist" style={{ fontSize: "12px", color: "var(--charcoal)", textDecoration: "none", transition: "color .2s", whiteSpace: "nowrap" }}>
+                  shared playlist ↗
+                </Link>
+              </div>
               <div className="b-val">Think I&apos;d vibe to something? Drop a recommendation and I&apos;ll check it out.</div>
               <div className="suggest-form">
                 <SongSearchBox onSubmit={submitSuggestion} disabled={suggestDisabled} />
