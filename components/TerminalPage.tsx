@@ -71,7 +71,7 @@ const filesystem: Record<string, string[] | Record<string, string[]>> = {
       "Email    leo@daft.email",
       "GitHub   github.com/daftscientist",
       "LinkedIn linkedin.com/in/leo-johnston",
-      `Website  ${hostname}`,
+      "Website  __HOSTNAME__",
     ],
   },
 };
@@ -119,9 +119,11 @@ function getCommandResult(cmd: string, args: string[], history: string[], hostna
       if (!args.length) return [{ type: "err", text: "cat: missing file operand" }];
       const path = args[0].replace(/^\.\//, "");
 
+      const resolve = (l: string) => l.replace("__HOSTNAME__", hostname);
+
       const direct = filesystem[path];
       if (direct && Array.isArray(direct)) {
-        return direct.map((l) => ({ type: "out" as const, text: l }));
+        return direct.map((l) => ({ type: "out" as const, text: resolve(l) }));
       }
 
       const parts = path.split("/");
@@ -130,7 +132,7 @@ function getCommandResult(cmd: string, args: string[], history: string[], hostna
         const dir = filesystem[dirKey];
         if (dir && typeof dir === "object" && !Array.isArray(dir)) {
           const file = dir[parts[1]];
-          if (file) return file.map((l) => ({ type: "out" as const, text: l }));
+          if (file) return file.map((l) => ({ type: "out" as const, text: resolve(l) }));
         }
       }
 
